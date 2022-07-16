@@ -10,3 +10,7 @@ This template was taken from "Haciendo practica de curso Aprende Bootstrap 4, el
 This template was created and designed by Juan Pablo de la Torre
 - Please follow him:
 - [Juan Pablo de la Torre Website](https://codigoconjuan.com/author/juanadmin_/)
+
+# Screenshot
+
+![Tienda Mueble](./assets/design/desktop.png)
