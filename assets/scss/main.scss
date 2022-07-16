@@ -1,0 +1,483 @@
+@import 'normalize';
+@import 'mixin';
+
+.header {
+    &__top {
+        position: relative;
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 75px;
+            left: 0;
+            background-color: var(--soft-gray);
+            opacity: 0.3;
+            width: 100%;
+            height: 1px;
+        }
+
+        &--main {
+            @include content-width;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            padding: 25px 0 0;
+        }
+
+        &--buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &--burger {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            border: 1px solid var(--soft-gray);
+            background-color: transparent;
+            border-radius: 5px;
+            width: 40px;
+            height: 30px;
+            padding: 0 5px 0 5px;
+            transition: var(--animation);
+
+            &.active {
+                padding: 0 0 0 5px;
+            }
+        }
+
+        &--bar {
+            background-color: var(--soft-gray);
+            border-radius: 5px;
+            width: 20px;
+            height: 2px;
+            transition: var(--animation);
+
+            &:nth-child(1).active {
+                transform: rotate(45deg);
+                transform-origin: 10% 30%;
+            }
+
+            &:nth-child(2).active {
+                opacity: 0;
+            }
+
+            &:nth-child(3).active {
+                transform: rotate(-45deg);
+                transform-origin: 10% 25%;
+
+            }
+        }
+
+
+        &--firstheading {
+            text-transform: capitalize;
+            text-align: center;
+            font-size: 2rem;
+
+            & span {
+                color: var(--blue);
+            }
+        }
+
+        &--brand {
+            color: var(--black);
+        }
+
+        &--nav {
+            overflow: hidden;
+            height: 0;
+            transition: var(--animation-1);
+
+            &.show {
+                height: 225px;
+            }
+        }
+
+        &--menu {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        &--link {
+            color: var(--gray);
+            text-transform: capitalize;
+            transition: var(--animation);
+
+            &:hover,
+            &:focus,
+            &.active {
+                color: var(--blue);
+            }
+        }
+    }
+
+    &__home {
+        background-image: url(../img/principal.jpg);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 350px;
+    }
+
+    @media screen and (min-width:768px) {
+        &__top {
+            &--nav {
+                &.show {
+                    height: 45px;
+                }
+            }
+
+            &--menu {
+                flex-direction: row;
+                justify-content: space-between;
+            }
+        }
+
+        &__home {
+            height: 500px;
+        }
+    }
+
+    @media screen and (min-width:992px) {
+        &__top {
+            &::before {
+                content: '';
+                top: 85px;
+            }
+
+            &--main {
+                padding: 25px 0 25px;
+            }
+
+            &--nav {
+                overflow: initial;
+                height: unset;
+            }
+
+            &--burger {
+                display: none;
+            }
+        }
+    }
+}
+
+.categorias {
+    padding: 32px 0;
+
+    &__main {
+        @include content-width;
+    }
+
+    &__top {
+        &--secondheading {
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        margin-bottom: 50px;
+    }
+
+    &__middle {
+        @include grid-3;
+
+        &--picture {
+            overflow: hidden;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        &--floating {
+            position: absolute;
+            top: -20%;
+            right: 30px;
+            width: 100%;
+            transition: var(--animation);
+        }
+
+        &--picture:hover &--floating {
+            top: 10px;
+        }
+
+        &--subfloating {
+            width: 28%;
+            margin-left: auto;
+            display: flex;
+            align-items: center;
+            background-color: var(--green);
+            color: var(--white);
+            padding: 10px;
+            gap: 10px;
+            border-radius: 5px;
+        }
+
+        &--ico {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &--subCta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-transform: capitalize;
+            color: var(--white);
+            font-size: 0.8rem;
+            overflow: hidden;
+        }
+
+        &--item {
+            &:nth-child(1) {
+                grid-area: itemOne;
+            }
+
+            &:nth-child(2) {
+                grid-area: itemTwo;
+            }
+
+            &:nth-child(3) {
+                grid-area: itemThree;
+            }
+        }
+
+        &--description {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        &--title {
+            font-weight: 300;
+            font-size: 1.6rem;
+            text-transform: capitalize;
+        }
+
+        &--img {
+            max-width: 400px;
+            width: 90%;
+            margin: 0 auto;
+        }
+    }
+
+    @media screen and (min-width:768px) {
+        &__middle {
+            &--floating {
+                right: 10px;
+            }
+
+            &--img {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.about {
+    margin: 50px 0;
+    background-color: var(--blue);
+
+    &__main {
+        @include grid-2;
+    }
+
+    &__picture {
+        grid-area: itemOne;
+    }
+
+    &__img {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    &__article {
+        grid-area: itemTwo;
+        background-color: var(--blue);
+        color: var(--white);
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+
+        &--secondheading {
+            color: var(--white);
+            font-size: 3rem;
+        }
+
+        &--paragraph {
+            line-height: 1.5rem;
+        }
+    }
+
+    @media screen and (min-width:992px) {
+        &__article {
+            padding: 30px 50px;
+
+            &--secondheading {
+                font-size: 3.5rem;
+            }
+        }
+    }
+}
+
+.product {
+    margin: 50px 0;
+
+    &__main {
+        @include content-width;
+    }
+
+    &__top {
+        &--secondheading {
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        margin-bottom: 50px;
+    }
+
+    &__middle {
+        @include main-grid;
+
+        &--item {
+            overflow: hidden;
+            border-radius: 5px;
+
+            &:nth-child(1) {
+                grid-area: itemOne;
+            }
+
+            &:nth-child(2) {
+                grid-area: itemTwo;
+            }
+
+            &:nth-child(3) {
+                grid-area: itemThree;
+            }
+
+            &:nth-child(4) {
+                grid-area: itemFour;
+            }
+
+            &:nth-child(5) {
+                grid-area: itemFive;
+            }
+
+            &:nth-child(6) {
+                grid-area: itemSix;
+            }
+        }
+
+        &--card {
+            @include card;
+        }
+
+        &--middleheading {
+            color: var(--white);
+            font-size: 1.7rem;
+        }
+
+        &--price {
+            font-family: var(--primary-font);
+            color: var(--white);
+            font-size: 1.7rem;
+        }
+
+        &--cta {
+            @include button;
+        }
+    }
+
+    @media screen and (min-width:992px) {
+        &__middle {
+            &--item {
+                &:nth-child(1) {
+                    display: grid;
+                    grid-template-columns: 70% 1fr;
+                    grid-template-areas: "itemOne itemTwo";
+                    height: 400px;
+                }
+            }
+
+            &--item:nth-child(1) &--picture {
+                grid-area: itemOne;
+            }
+
+            &--item:nth-child(1) &--card {
+                grid-area: itemTwo;
+            }
+
+            &--img {
+                height: 100%;
+                object-fit: cover;
+                object-position: left;
+            }
+        }
+    }
+}
+
+.footer {
+    padding: 10px 0 30px;
+
+
+    @mixin flex {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+
+        @media screen and (min-width:992px) {
+            align-items: flex-start;
+        }
+    }
+
+    &__menu {
+        @include flex;
+        gap: 20px;
+    }
+
+    &__middleheading {
+        font-size: 1.8rem;
+    }
+
+    &__link {
+        text-transform: capitalize;
+        font-size: 1rem;
+        color: var(--gray);
+        transition: var(--animation);
+
+        &:hover,
+        &:focus {
+            color: var(--blue);
+        }
+    }
+
+    &__main {
+        @include content-width;
+        @include grid-3;
+        border-top: 1px solid var(--gray-hover);
+        padding-top: 30px;
+    }
+
+    &__top {
+        grid-area: itemOne;
+        @include flex;
+    }
+
+    &__middle {
+        grid-area: itemTwo;
+        @include flex;
+    }
+
+    &__right {
+        grid-area: itemThree;
+        @include flex;
+    }
+}

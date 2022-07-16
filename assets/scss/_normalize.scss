@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+*,
+*::before,
+*::after{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style:none;
+}
+
+:root{
+    --black:#2a2a2a;
+    --blue:#037BC0;
+    --green:#8cbc00;
+    --green-hover:#218838;
+    --white:#fff;
+    --gray:#666;
+    --gray-hover: rgba(102, 102, 102, 0.321);
+    --soft-gray:#a5a5a5;
+    --primary-font:-apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        "Helvetica Neue",
+        Arial,
+        sans-serif,
+        "Apple Color Emoji",
+        "Segoe UI Emoji",
+        "Segoe UI Symbol";
+    --secondary-font:'Playfair Display',
+        serif;
+    --animation:0.5s;
+    --animation-1: 0.9s;
+}
+
+html{
+    font-size: 16px;
+}
+
+body{
+    font-size: 1rem;
+    font-family:var(--primary-font);
+}
+
+h1,h2,h3,h4,h5,h6{
+    text-transform: capitalize;
+    color:var(--black);
+    font-family: var(--secondary-font);
+}
+
+img{
+    display: block;
+    width:100%;
+}
+
